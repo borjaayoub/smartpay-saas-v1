@@ -2,8 +2,12 @@
 
 This guide will help you deploy your SmartPay V2 application completely free using:
 - **Frontend**: Vercel or Netlify (both free)
-- **Backend**: Render.com (free tier available)
+- **Backend**: Render.com (free tier available, **but requires credit card**)
 - **Database**: Supabase PostgreSQL (free tier)
+
+⚠️ **Note**: Render.com requires a credit card even for free tier.  
+👉 **For NO Credit Card options**, see [DEPLOYMENT_ALTERNATIVES.md](./DEPLOYMENT_ALTERNATIVES.md)  
+👉 **For AWS/GCP**, see [DEPLOYMENT_AWS.md](./DEPLOYMENT_AWS.md) or [DEPLOYMENT_GCP.md](./DEPLOYMENT_GCP.md)
 
 ---
 

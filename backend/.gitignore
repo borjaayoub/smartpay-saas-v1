@@ -180,3 +180,8 @@ credentials.json
 config.local.py
 settings.local.py
 
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

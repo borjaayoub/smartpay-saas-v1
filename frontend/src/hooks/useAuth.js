@@ -54,6 +54,21 @@ const loginMutation = async (url, { arg }) => {
   return authData;
 };
 
+// SWR mutation for register
+const registerMutation = async (url, { arg }) => {
+  const response = await api.post(url, arg);
+  const { token, user } = response.data;
+  
+  const authData = {
+    user,
+    token,
+    isAuthenticated: true,
+  };
+  
+  setStoredAuth(authData);
+  return authData;
+};
+
 // SWR mutation for logout
 const logoutMutation = async () => {
   clearStoredAuth();
@@ -79,6 +94,12 @@ export const useAuth = () => {
     loginMutation
   );
 
+  // Register mutation
+  const { trigger: register, isMutating: isRegistering } = useSWRMutation(
+    '/auth/register',
+    registerMutation
+  );
+
   // Logout mutation
   const { trigger: logout, isMutating: isLoggingOut } = useSWRMutation(
     'logout',
@@ -91,6 +112,13 @@ export const useAuth = () => {
     await mutateAuth(result, false); // Update cache without revalidation
     return result;
   }, [login, mutateAuth]);
+
+  // Register function
+  const handleRegister = useCallback(async (credentials) => {
+    const result = await register(credentials);
+    await mutateAuth(result, false); // Update cache without revalidation
+    return result;
+  }, [register, mutateAuth]);
 
   // Logout function
   const handleLogout = useCallback(async () => {
@@ -118,10 +146,12 @@ export const useAuth = () => {
     // Loading states
     isLoading: authData === undefined,
     isLoggingIn,
+    isRegistering,
     isLoggingOut,
     
     // Actions
     login: handleLogin,
+    register: handleRegister,
     logout: handleLogout,
     updateUser,
     

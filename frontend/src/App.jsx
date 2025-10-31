@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import Employees from './components/Employees.jsx';
 import PayrollSimulator from './components/PayrollSimulator.jsx';
@@ -40,6 +41,7 @@ function AppContent() {
     <Routes>
       {/* Public routes */}
       <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login />} />
+      <Route path="/register" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Register />} />
       
       {/* Landing page - show to non-authenticated users */}
       <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingPage />} />

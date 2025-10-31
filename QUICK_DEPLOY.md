@@ -2,11 +2,29 @@
 
 ## 🚀 Fast Track Deployment (15 minutes)
 
+⚠️ **No Credit Card Options**: See [DEPLOYMENT_ALTERNATIVES.md](./DEPLOYMENT_ALTERNATIVES.md)
+
 ### 1. Database Setup (5 min)
 - [ ] Sign up at [supabase.com](https://supabase.com)
 - [ ] Create new project → Copy PostgreSQL connection string
 
 ### 2. Backend Deployment (5 min)
+
+**Option A: PythonAnywhere (NO Credit Card!) - RECOMMENDED**
+- [ ] Sign up at [pythonanywhere.com](https://www.pythonanywhere.com)
+- [ ] Upload backend folder or git clone
+- [ ] Install: `pip3.10 install --user -r requirements.txt`
+- [ ] Configure web app → WSGI → point to `main:app`
+- [ ] Set environment variables in `.env` file
+- [ ] Run: `python3.10 init_db.py`
+
+**Option B: Fly.io (NO Credit Card!)**
+- [ ] Install Fly CLI: `iwr https://fly.io/install.ps1 -useb | iex`
+- [ ] Sign up at [fly.io](https://fly.io)
+- [ ] `cd backend && fly launch && fly deploy`
+- [ ] Set secrets: `fly secrets set DATABASE_URL=...`
+
+**Option C: Render.com (Requires CC)**
 - [ ] Sign up at [render.com](https://render.com)
 - [ ] New Web Service → Connect GitHub repo
 - [ ] Settings:
@@ -55,9 +73,12 @@ Use first for SECRET_KEY, second for JWT_SECRET_KEY.
 
 ---
 
-## 📚 Full Guide
+## 📚 Full Guides
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+- **No Credit Card Options**: [DEPLOYMENT_ALTERNATIVES.md](./DEPLOYMENT_ALTERNATIVES.md) ⭐
+- **Detailed Render Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md)
+- **AWS Deployment**: [DEPLOYMENT_AWS.md](./DEPLOYMENT_AWS.md) (requires CC)
+- **Google Cloud**: [DEPLOYMENT_GCP.md](./DEPLOYMENT_GCP.md) (requires CC, but $300 free credit)
 
 ---
 
