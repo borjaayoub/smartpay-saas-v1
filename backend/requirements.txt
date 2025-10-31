@@ -1,0 +1,12 @@
+flask==3.1.2
+flask-cors==5.0.0
+APIFlask==2.4.0
+flask-sqlalchemy==3.1.1
+flask-marshmallow==1.3.0
+uvicorn[standard]==0.24.0
+python-dotenv==1.2.1
+psycopg2-binary==2.9.10
+bcrypt==4.2.1
+PyJWT==2.10.1
+faker==24.2.0
+gunicorn==21.2.0
